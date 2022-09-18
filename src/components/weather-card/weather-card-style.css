@@ -44,4 +44,7 @@
     .weather-card {
         width: 350px;
     }
+    .firstPanel {
+        margin-left: 10px;
+    }
 }

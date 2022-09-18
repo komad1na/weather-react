@@ -14,24 +14,27 @@ export default function ForecastList() {
         return (
             <>
                 <div className="container">
-                    {eachDay.map((x, index) => {
-                        return (
-                            <div>
-                                <div className="date">
-                                    {getDateTime(x[0].dt)}
+                    {eachDay.map((x, index2) => {
+                        if (x.length < 3) {
+                        } else {
+                            return (
+                                <div className="margin" key={index2}>
+                                    <div className="date">
+                                        {getDateTime(x[0].dt)}
+                                    </div>
+                                    <div className="flexForecast">
+                                        {x.map((item, index) => {
+                                            return (
+                                                <ForecastCard
+                                                    key={index}
+                                                    data={item}
+                                                />
+                                            );
+                                        })}
+                                    </div>
                                 </div>
-                                <div className="flexForecast" key={index}>
-                                    {x.map((item, index) => {
-                                        return (
-                                            <ForecastCard
-                                                key={index}
-                                                data={item}
-                                            />
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        );
+                            );
+                        }
                     })}
                 </div>
             </>
