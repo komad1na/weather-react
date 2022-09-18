@@ -68,3 +68,8 @@ table tr td:first-child:last-child {
 .link:hover {
     color: var(--pozadina);
 }
+@media screen and (max-width: 1000px) {
+    .air-card {
+        width: 350px;
+    }
+}

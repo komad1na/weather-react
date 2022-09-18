@@ -1,3 +1,11 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .flexForecast {
     display: flex;
     gap: 10px;
@@ -5,10 +13,11 @@
     /**/
     border-radius: 6px;
 
-    width: max-content;
-    min-width: 500px;
+    min-width: 140px;
     margin-left: 50px;
     margin-right: 50px;
+    padding: 12px;
+    margin-bottom: 60px;
 }
 .heading {
     /**/
@@ -20,4 +29,11 @@
     -webkit-backdrop-filter: blur(10px);
     color: var(--pozadina2);
     font-size: x-large;
+}
+
+.date {
+    font-size: xx-large;
+    text-align: left;
+    display: flex;
+    padding: 1rem 1rem 0rem 4rem;
 }

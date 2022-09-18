@@ -31,3 +31,8 @@
     width: 100px;
     padding: 1rem;
 }
+@media screen and (max-width: 1000px) {
+    .sun-info-card {
+        width: 350px;
+    }
+}

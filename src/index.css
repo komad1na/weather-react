@@ -11,6 +11,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     background-image: linear-gradient(to right, #efefbb 0%, #d4d3dd 60%);
+    background-repeat: no-repeat repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 code {

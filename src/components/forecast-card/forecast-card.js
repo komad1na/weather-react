@@ -9,9 +9,8 @@ import humidityIcon from "../../icons/humidity.png";
 export default function ForecastCard({ data }) {
     return (
         <div className="forecastCard">
-            <div>
-                <b> {getDateTime(data.dt)}</b> <br />
-                {getTime(data.dt)}
+            <div className="time">
+                <b> {getTime(data.dt)}</b>
             </div>
             <div className="icon">
                 <img
@@ -20,6 +19,7 @@ export default function ForecastCard({ data }) {
                     alt="icon"
                 />
                 <div className="forcastDesc">{data.weather[0].main}</div>
+
                 <div className="temp">
                     <img
                         className="tempIcon"
@@ -28,11 +28,13 @@ export default function ForecastCard({ data }) {
                     />{" "}
                     {data.main.temp}&#176;C
                 </div>
+
                 <div className="temp">
                     <img className="tempIcon" src={pressureIcon} alt="temp" />
                     {"  "}
                     {data.main.pressure}hPa
                 </div>
+
                 <div className="temp">
                     <img className="tempIcon" src={humidityIcon} alt="temp" />
                     {"  "}
