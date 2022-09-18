@@ -4,7 +4,7 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import sunrise from "../../icons/sunrise.png";
 import sunset from "../../icons/sunset.png";
 import Text from "../text/text";
-import { getDateTime } from "../utils/getDateTime";
+import { getTime } from "../utils/getDateTime";
 
 export default function SunInfo() {
     let suninfo = useSelector((state) => state.data.data.sys);
@@ -15,7 +15,7 @@ export default function SunInfo() {
                 <img className="sunrise" src={sunrise} alt="sunrise img" />
                 <Text
                     frontText="Sunrise at "
-                    dataText={getDateTime(suninfo.sunrise)}
+                    dataText={getTime(suninfo.sunrise)}
                     unit=""
                 />
             </div>
@@ -23,7 +23,7 @@ export default function SunInfo() {
                 <img className="sunset" src={sunset} alt="sunset img" />
                 <Text
                     frontText="Sunset at "
-                    dataText={getDateTime(suninfo.sunset)}
+                    dataText={getTime(suninfo.sunset)}
                     unit=""
                 />
             </div>

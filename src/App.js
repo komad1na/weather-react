@@ -6,6 +6,7 @@ import WeatherCard from "./components/weather-card/weather-card";
 import { ToastContainer } from "react-toastify";
 import AirPollution from "./components/air-pollution/air-pollution";
 import SunInfo from "./components/sun-info/sun-info";
+import ForecastList from "./components/forecast-list/forecast-list";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <WeatherCard />
                 <AirPollution />
                 <SunInfo />
+                <ForecastList />
             </div>
             <Footer />
             <ToastContainer
