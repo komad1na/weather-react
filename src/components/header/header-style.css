@@ -1,0 +1,13 @@
+.header {
+    height: 65px;
+    background-color: var(--pozadina2);
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "inter";
+    position: fixed;
+    z-index: 1000;
+    top: 0%;
+    width: 100%;
+}

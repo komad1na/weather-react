@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "inter";
+    src: url(../public/inter-light.ttf);
+}
+
+body {
+    margin: 0;
+
+    font-family: "inter";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background-image: linear-gradient(to right, #fff1eb 0%, #ace0f9 100%);
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+:root {
+    --pozadina: #2c3639;
+    --pozadina2: #3c5b5e;
+    --tekst: #f1eee4;
+    --tekst2: #a27b5c;
+}

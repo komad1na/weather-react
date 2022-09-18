@@ -1,0 +1,15 @@
+.wrapper {
+    position: relative;
+}
+.cityInput {
+    box-sizing: border-box;
+    width: 350px;
+    font-size: large;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    font-family: "inter";
+}
+.cityInput:focus {
+    outline: none;
+}

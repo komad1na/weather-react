@@ -1,0 +1,33 @@
+.sun-info-card {
+    border-radius: 6px;
+    /**/
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--pozadina2);
+    width: 450px;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    font-size: large;
+}
+.leftPanel {
+    padding-left: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+    width: 50%;
+    padding-bottom: 1rem;
+}
+.rightPanel {
+    padding-right: auto;
+    width: 50%;
+}
+.sunrise {
+    width: 100px;
+    padding: 1rem;
+}
+.sunset {
+    width: 100px;
+    padding: 1rem;
+}
