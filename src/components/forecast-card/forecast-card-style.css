@@ -18,6 +18,7 @@
     font-size: x-large;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 .tempIcon {
     width: 21px;
@@ -28,5 +29,6 @@
     align-items: flex-end;
     justify-content: center;
     font-size: large;
-    margin-top: 10px;
+    margin-top: 5px;
+    gap: 5px;
 }

@@ -110,7 +110,6 @@ export const getAPIData = (cityName) => {
                 axios
                     .get(getWeatherURL)
                     .then((response) => {
-                        console.log(response.data);
                         dispatch(setData(response.data));
                         loaded();
                     })

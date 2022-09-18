@@ -8,7 +8,7 @@ import { getTime } from "../utils/getDateTime";
 
 export default function SunInfo() {
     let suninfo = useSelector((state) => state.data.data.sys);
-    console.log(suninfo);
+
     return (
         <div className="sun-info-card">
             <div className="leftPanel">

@@ -29,11 +29,13 @@ export default function ForecastCard({ data }) {
                     {data.main.temp}&#176;C
                 </div>
                 <div className="temp">
-                    <img className="tempIcon" src={pressureIcon} alt="temp" />{" "}
+                    <img className="tempIcon" src={pressureIcon} alt="temp" />
+                    {"  "}
                     {data.main.pressure}hPa
                 </div>
                 <div className="temp">
-                    <img className="tempIcon" src={humidityIcon} alt="temp" />{" "}
+                    <img className="tempIcon" src={humidityIcon} alt="temp" />
+                    {"  "}
                     {data.main.humidity}%
                 </div>
             </div>

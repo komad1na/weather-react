@@ -5,7 +5,6 @@ import ForecastCard from "../forecast-card/forecast-card";
 
 export default function ForecastList() {
     let forecastData = useSelector((state) => state.data.forecast);
-    console.log(forecastData);
 
     if (forecastData.length > 0) {
         return (
