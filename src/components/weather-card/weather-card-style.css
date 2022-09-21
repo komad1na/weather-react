@@ -3,12 +3,13 @@
     /**/
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(10px);
     color: var(--pozadina2);
     width: 450px;
     height: 300px;
     display: flex;
+    justify-content: space-evenly;
 }
 
 .city-name {
@@ -23,16 +24,12 @@
     font-size: large;
 }
 .firstPanel {
-    float: left;
-    margin-left: 25px;
     width: 45%;
 }
 .secondPanel {
-    float: right;
-    padding: auto;
+    height: max-content;
+    margin-top: 25px;
     width: 50%;
-    height: inherit;
-    margin-top: 30px;
 }
 .secondPanel > * {
     padding: 4px;
