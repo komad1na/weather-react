@@ -3,9 +3,9 @@
     /**/
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.18);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
-    color: var(--pozadina2);
+    color: var(--tekst);
     width: 450px;
     height: auto;
 
@@ -26,10 +26,10 @@ th {
 }
 td {
     padding: 8px;
-    border-top: 1px solid var(--pozadina2);
+    border-top: 1px solid var(--tekst);
     font-size: large;
     font-weight: 700;
-    color: var(--pozadina2);
+    color: var(--tekst);
     width: 25%;
 }
 table {
@@ -62,7 +62,7 @@ table tr td:first-child:last-child {
 
 .link {
     font-size: small;
-    color: var(--pozadina2);
+    color: var(--tekst);
     text-decoration: none;
 }
 .link:hover {

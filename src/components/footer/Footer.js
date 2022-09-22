@@ -7,7 +7,7 @@ export default function Footer() {
             <a className="footer-link" href="https://github.com/komad1na">
                 Nemanja Komadina
             </a>
-            &nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
             <a className="footer-link" href="https://openweathermap.org/api">
                 OpenWeather API
             </a>

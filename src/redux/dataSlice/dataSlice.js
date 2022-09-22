@@ -101,51 +101,56 @@ export const getAPIData = (cityName) => {
         axios
             .get(latLonURL)
             .then((resp) => {
-                dispatch(setLatLon(resp.data[0]));
+                if (resp.data.length != 0) {
+                    dispatch(setLatLon(resp.data[0]));
 
-                // Get Weather data
-                const getWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${
-                    resp.data[0].lat
-                }&lon=${resp.data[0].lon}&appid=${APIKEY()}&units=metric`;
-                axios
-                    .get(getWeatherURL)
-                    .then((response) => {
-                        dispatch(setData(response.data));
-                        loaded();
-                    })
-                    .catch((err) => {
-                        errorLoading();
-                    });
+                    // Get Weather data
+                    const getWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${
+                        resp.data[0].lat
+                    }&lon=${resp.data[0].lon}&appid=${APIKEY()}&units=metric`;
+                    axios
+                        .get(getWeatherURL)
+                        .then((response) => {
+                            dispatch(setData(response.data));
+                            loaded();
+                        })
+                        .catch((err) => {
+                            errorLoading();
+                        });
 
-                // Get Air Pollution data
-                const getAirQualityURL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${
-                    resp.data[0].lat
-                }&lon=${resp.data[0].lon}&appid=${APIKEY()}`;
-                axios
-                    .get(getAirQualityURL)
-                    .then((response) => {
-                        let airdata = response.data.list[0].components;
-                        dispatch(setAirPollution(airdata));
-                    })
-                    .catch((err) => {
-                        errorLoading();
-                    });
+                    // Get Air Pollution data
+                    const getAirQualityURL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${
+                        resp.data[0].lat
+                    }&lon=${resp.data[0].lon}&appid=${APIKEY()}`;
+                    axios
+                        .get(getAirQualityURL)
+                        .then((response) => {
+                            let airdata = response.data.list[0].components;
+                            dispatch(setAirPollution(airdata));
+                        })
+                        .catch((err) => {
+                            errorLoading();
+                        });
 
-                // Get forecast for five days
-                const getForecastFive = `https://api.openweathermap.org/data/2.5/forecast?lat=${
-                    resp.data[0].lat
-                }&lon=${resp.data[0].lon}&appid=${APIKEY()}&units=metric`;
-                axios
-                    .get(getForecastFive)
-                    .then((response) => {
-                        let forecastData = response.data.list;
-                        dispatch(setForecast(forecastData));
-                    })
-                    .catch((err) => {
-                        errorLoading();
-                    });
+                    // Get forecast for five days
+                    const getForecastFive = `https://api.openweathermap.org/data/2.5/forecast?lat=${
+                        resp.data[0].lat
+                    }&lon=${resp.data[0].lon}&appid=${APIKEY()}&units=metric`;
+                    axios
+                        .get(getForecastFive)
+                        .then((response) => {
+                            let forecastData = response.data.list;
+                            dispatch(setForecast(forecastData));
+                        })
+                        .catch((err) => {
+                            errorLoading();
+                        });
+                } else {
+                    errorLoading();
+                }
             })
             .catch((err) => {
+                console.log(err);
                 errorLoading();
             });
     };

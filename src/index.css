@@ -25,7 +25,7 @@ code {
 }
 :root {
     --pozadina: #2c3639;
-    --pozadina2: #3c5b5e;
-    --tekst: #f1eee4;
-    --tekst2: #a27b5c;
+    --tekst: #000000;
+    --header-footer: #9c9c9c;
+    --tekst2: #ffffff;
 }
