@@ -2,6 +2,7 @@ import React from "react";
 import "./air-pollution-style.css";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { no2, pm10, o3, pm25 } from "../utils/getColor";
+import TableData from "../utils/tableData";
 
 export default function AirPollution() {
     let airData = useSelector((state) => state.data.airPollution);
@@ -28,54 +29,40 @@ export default function AirPollution() {
                             </th>
                         </tr>
                         <tr>
-                            <td
-                                style={{
-                                    backgroundColor: no2(airData.no2)[0]
-                                }}
-                            >
-                                {airData.no2}
-                            </td>
-                            <td
-                                style={{
-                                    backgroundColor: pm10(airData.pm10)[0]
-                                }}
-                            >
-                                {airData.pm10}
-                            </td>
-                            <td style={{ backgroundColor: o3(airData.o3)[0] }}>
-                                {airData.o3}
-                            </td>
-                            <td
-                                style={{
-                                    backgroundColor: pm25(airData.pm2_5)[0]
-                                }}
-                            >
-                                {airData.pm2_5}
-                            </td>
+                            <TableData
+                                color={no2(airData.no2).color}
+                                text={airData.no2}
+                            />
+                            <TableData
+                                color={pm10(airData.pm10).color}
+                                text={airData.pm10}
+                            />
+                            <TableData
+                                color={o3(airData.o3).color}
+                                text={airData.o3}
+                            />
+                            <TableData
+                                color={pm25(airData.pm2_5).color}
+                                text={airData.pm2_5}
+                            />
                         </tr>
                         <tr>
-                            <td
-                                style={{ backgroundColor: no2(airData.no2)[0] }}
-                            >
-                                {no2(airData.no2)[1]}
-                            </td>
-                            <td
-                                style={{
-                                    backgroundColor: pm10(airData.pm10)[0]
-                                }}
-                            >
-                                {pm10(airData.pm10)[1]}
-                            </td>
-                            <td style={{ backgroundColor: o3(airData.o3)[0] }}>
-                                {o3(airData.o3)[1]}
-                            </td>
-                            <td
-                                style={{
-                                    backgroundColor: pm25(airData.pm2_5)[0]
-                                }}
-                            >
-                                {pm25(airData.pm2_5)[1]}
-                            </td>
+                            <TableData
+                                color={no2(airData.no2).color}
+                                text={no2(airData.no2).text}
+                            />
+                            <TableData
+                                color={pm10(airData.pm10).color}
+                                text={pm10(airData.pm10).text}
+                            />
+                            <TableData
+                                color={o3(airData.o3).color}
+                                text={o3(airData.o3).text}
+                            />
+                            <TableData
+                                color={pm25(airData.pm2_5).color}
+                                text={pm25(airData.pm2_5).text}
+                            />
                         </tr>
                         <tr>
                             <td colSpan={4}>

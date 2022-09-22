@@ -25,12 +25,12 @@
     font-size: large;
 }
 .firstPanel {
-    width: 45%;
+    width: 50%;
 }
 .secondPanel {
     height: max-content;
     margin-top: 25px;
-    width: 50%;
+    width: 45%;
 }
 .secondPanel > * {
     padding: 4px;

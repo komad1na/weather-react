@@ -18,15 +18,16 @@ export default function WeatherCard() {
         deg: data.wind.deg,
         all: data.clouds.all
     };
+    var leftPanelData = {
+        name: latlon.name,
+        icon: data.weather[0].icon,
+        desc: data.weather[0].main
+    };
 
     return (
         <div className="weather-card">
             <div className="firstPanel">
-                <LeftPanel
-                    city={latlon.name}
-                    icon={data.weather[0].icon}
-                    desc={data.weather[0].main}
-                />
+                <LeftPanel data={leftPanelData} />
             </div>
             <div className="secondPanel">
                 <RightPanel data={rightPanelData} />
