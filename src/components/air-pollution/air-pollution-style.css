@@ -71,5 +71,7 @@ table tr td:first-child:last-child {
 @media screen and (max-width: 1000px) {
     .air-card {
         width: 350px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }

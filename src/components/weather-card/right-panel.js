@@ -25,7 +25,7 @@ export default function RightPanel({ data }) {
                 dataText={getDirection(data.deg)}
                 unit=""
             />
-            <Text frontText="Cloudiness:" dataText={data.all} unit="%" />
+            <Text frontText="Clouds:" dataText={data.all} unit="%" />
         </>
     );
 }

@@ -25,12 +25,12 @@
     font-size: large;
 }
 .firstPanel {
-    width: 50%;
+    width: 40%;
 }
 .secondPanel {
     height: max-content;
-    margin-top: 25px;
-    width: 45%;
+    margin-top: 15px;
+    width: 55%;
 }
 .secondPanel > * {
     padding: 4px;
@@ -41,8 +41,15 @@
 @media screen and (max-width: 1000px) {
     .weather-card {
         width: 350px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
     .firstPanel {
         margin-left: 10px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .secondPanel {
+        font-size: 0.9rem;
     }
 }

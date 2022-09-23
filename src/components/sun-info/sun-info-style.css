@@ -34,5 +34,7 @@
 @media screen and (max-width: 1000px) {
     .sun-info-card {
         width: 350px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }
