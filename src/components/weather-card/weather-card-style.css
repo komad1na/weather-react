@@ -53,3 +53,19 @@
         font-size: 0.9rem;
     }
 }
+@media screen and (max-width: 280px) {
+    .secondPanel {
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 350px) {
+    .city-name {
+        font-size: 1.3rem;
+    }
+    .image {
+        width: 75px;
+    }
+    .descriptionIcon {
+        font-size: 1.4rem;
+    }
+}
