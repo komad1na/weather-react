@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import "./forecast-list-style.css";
 import ForecastCard from "../forecast-card/forecast-card";
@@ -6,38 +6,43 @@ import { getForecastDays } from "../utils/getForecastDays";
 import { getDateTime } from "../utils/getDateTime";
 
 export default function ForecastList() {
-    let forecastData = useSelector((state) => state.data.forecast);
+    const forecastData = useSelector((state) => state.data.forecast);
+    const scrollContainerRef = useRef(null);
 
-    if (forecastData.length > 0) {
-        var eachDay = getForecastDays(forecastData);
+    const handleWheelScroll = (event) => {
+        event.preventDefault();
+        const container = scrollContainerRef.current;
+        if (container) {
+            const scrollAmount = event.deltaY;
+            container.scrollLeft += scrollAmount;
+        }
+    };
 
-        return (
-            <>
-                <div className="container">
-                    {eachDay.map((x, index2) => {
-                        if (x.length < 3) {
-                        } else {
-                            return (
-                                <div className="margin" key={index2}>
-                                    <div className="date">
-                                        {getDateTime(x[0].dt)}
-                                    </div>
-                                    <div className="flexForecast">
-                                        {x.map((item, index) => {
-                                            return (
-                                                <ForecastCard
-                                                    key={index}
-                                                    data={item}
-                                                />
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-                            );
-                        }
-                    })}
-                </div>
-            </>
-        );
+    if (!forecastData || !Array.isArray(forecastData) || forecastData.length === 0) {
+        return null;
     }
+
+    const forecastDays = getForecastDays(forecastData);
+    const validDays = forecastDays.filter(day => Array.isArray(day) && day.length >= 3);
+
+    return (
+        <div className="daily-forecast-container">
+            {validDays.map((dayData, dayIndex) => (
+                <div className="daily-forecast-day" key={dayIndex}>
+                    <div className="daily-forecast-date">
+                        {getDateTime(dayData[0].dt)}
+                    </div>
+                    <div className="daily-forecast-hours-container">
+                        <div className="daily-forecast-hours-scroll">
+                            {dayData.map((item, cardIndex) => (
+                                <div className="daily-forecast-hour-card" key={`${dayIndex}-${cardIndex}`}>
+                                    <ForecastCard data={item} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
 }

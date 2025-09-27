@@ -12,8 +12,8 @@ body {
     font-family: "inter";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    background: url("../public/background.jpg") no-repeat center center fixed;
+    background: var(--eerie-black);
+    color: var(--floral-white);
 }
 ::-webkit-scrollbar {
     display: none;
@@ -23,9 +23,20 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
+* {
+    color: var(--floral-white) !important;
+}
+
 :root {
-    --pozadina: #2c3639;
-    --tekst: #000000;
-    --header-footer: #9c9c9c;
-    --tekst2: #ffffff;
+    --floral-white: #fffcf2ff;
+    --timberwolf: #ccc5b9ff;
+    --black-olive: #403d39ff;
+    --eerie-black: #252422ff;
+    --flame: #eb5e28ff;
+
+    /* Legacy variables for compatibility */
+    --pozadina: var(--eerie-black);
+    --tekst: var(--floral-white);
+    --header-footer: var(--black-olive);
+    --tekst2: var(--floral-white);
 }

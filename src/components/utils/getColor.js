@@ -1,7 +1,9 @@
 // Functions to return AQI color and Text for no2, pm10, o3, pm2.5 data that is returned from API
 // More about scale can be found at https://en.wikipedia.org/wiki/Air_quality_index#CAQI
 export function no2(number) {
-    if (number === 0) {
+    if (number < 0 || number === null || number === undefined) {
+        return { color: "#6c757d", text: "N/A" };
+    } else if (number === 0) {
         return { color: "", text: "---" };
     } else if (number > 0 && number < 50) {
         return { color: "#79bc6a", text: "Very low" };
@@ -14,10 +16,13 @@ export function no2(number) {
     } else if (number >= 400) {
         return { color: "#e8416f", text: "Very high" };
     }
+    return { color: "#6c757d", text: "Unknown" };
 }
 
 export function pm10(number) {
-    if (number === 0) {
+    if (number < 0 || number === null || number === undefined) {
+        return { color: "#6c757d", text: "N/A" };
+    } else if (number === 0) {
         return { color: "", text: "---" };
     } else if (number >= 0 && number < 25) {
         return { color: "#79bc6a", text: "Very low" };
@@ -30,10 +35,13 @@ export function pm10(number) {
     } else if (number >= 180) {
         return { color: "#e8416f", text: "Very high" };
     }
+    return { color: "#6c757d", text: "Unknown" };
 }
 
 export function o3(number) {
-    if (number === 0) {
+    if (number < 0 || number === null || number === undefined) {
+        return { color: "#6c757d", text: "N/A" };
+    } else if (number === 0) {
         return { color: "", text: "---" };
     } else if (number >= 0 && number < 60) {
         return { color: "#79bc6a", text: "Very low" };
@@ -46,10 +54,13 @@ export function o3(number) {
     } else if (number >= 240) {
         return { color: "#e8416f", text: "Very high" };
     }
+    return { color: "#6c757d", text: "Unknown" };
 }
 
 export function pm25(number) {
-    if (number === 0) {
+    if (number < 0 || number === null || number === undefined) {
+        return { color: "#6c757d", text: "N/A" };
+    } else if (number === 0) {
         return { color: "", text: "---" };
     } else if (number >= 0 && number < 15) {
         return { color: "#79bc6a", text: "Very low" };
@@ -62,4 +73,5 @@ export function pm25(number) {
     } else if (number >= 110) {
         return { color: "#e8416f", text: "Very high" };
     }
+    return { color: "#6c757d", text: "Unknown" };
 }

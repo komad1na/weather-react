@@ -1,13 +1,12 @@
 .air-card {
-    border-radius: 6px;
-    /**/
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.18);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(10px);
-    color: var(--tekst);
-    width: 450px;
+    border-radius: 4px;
+    border: 1px solid var(--flame);
+    background: var(--black-olive);
+    color: var(--floral-white);
+    width: 100%;
     height: auto;
+    padding: 24px;
+    box-sizing: border-box;
 
     display: flex;
     justify-content: center;
@@ -15,63 +14,125 @@
 }
 
 .title {
-    font-size: xx-large;
+    font-size: 1.8rem;
     font-weight: 700;
     text-align: center;
-    padding: 1rem;
+    margin-bottom: 24px;
+    color: var(--floral-white);
 }
-th {
-    padding: 10px;
-    font-size: large;
+
+.pollutants-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
 }
-td {
-    padding: 8px;
-    border-top: 1px solid var(--tekst);
-    font-size: large;
+
+.pollutant-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background: var(--eerie-black);
+    border-radius: 4px;
+    border: 1px solid var(--flame);
+}
+
+.pollutant-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.pollutant-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--floral-white);
+    margin-bottom: 4px;
+}
+
+.pollutant-unit {
+    font-size: 0.8rem;
+    color: var(--floral-white);
+    opacity: 0.7;
+}
+
+.pollutant-value {
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--tekst);
-    width: 25%;
+    color: #000000;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    min-width: 65px;
+    width: 65px;
+    text-align: center;
 }
-table {
-    border-collapse: collapse;
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
-    width: 100%;
-    border-radius: 8px;
+
+.pollutant-quality {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
 }
-table td,
-table th {
-    border: 1px solid rgba(255, 255, 255, 0.25);
-}
-table tr:first-child th {
-    border-top: 0;
-}
-table tr:last-child td {
-    border-bottom: 0;
-}
-table tr td:first-child,
-table tr th:first-child {
-    border-left: 0;
-}
-table tr td:last-child,
-table tr th:last-child {
-    border-right: 0;
-}
-table tr td:first-child:last-child {
-    text-align: left;
+
+.air-info-link {
+    text-align: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--flame);
 }
 
 .link {
     font-size: small;
-    color: var(--tekst);
+    color: var(--floral-white);
     text-decoration: none;
-}
-.link:hover {
-    color: var(--pozadina);
 }
 @media screen and (max-width: 1000px) {
     .air-card {
-        width: 350px;
-        margin-left: 10px;
-        margin-right: 10px;
+        padding: 20px;
+    }
+
+    .pollutants-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .pollutant-item {
+        padding: 12px;
+    }
+
+    .pollutant-value {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .pollutants-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .pollutant-item {
+        padding: 10px;
+    }
+
+    .pollutant-name {
+        font-size: 1rem;
+    }
+
+    .pollutant-value {
+        font-size: 1.2rem;
+        padding: 6px 10px;
+    }
+
+    .pollutant-quality {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .pollutants-grid {
+        grid-template-columns: 1fr;
     }
 }

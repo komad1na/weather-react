@@ -1,6 +1,11 @@
 import { getDateTime } from "./getDateTime";
 
 export function getForecastDays(data) {
+    // Check if data is an array and not empty
+    if (!Array.isArray(data) || data.length === 0) {
+        return [];
+    }
+
     var eachDay = [];
     let tempArray = [data[0]];
 
@@ -17,5 +22,11 @@ export function getForecastDays(data) {
             }
         }
     });
+
+    // Don't forget to push the last tempArray
+    if (tempArray.length > 0) {
+        eachDay.push(tempArray);
+    }
+
     return eachDay;
 }

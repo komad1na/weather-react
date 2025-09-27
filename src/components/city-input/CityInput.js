@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { getAPIData } from "../../redux/dataSlice/dataSlice";
-import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import "./city-input-style.css";
+import { getAPIData } from "../../redux/dataSlice/dataSlice.js";
+import { useDispatch } from "react-redux";
+import './city-input-style.css';
 
 export default function CityInput() {
-    let [cityname, setCityName] = useState("");
+    const [cityname, setCityName] = useState("");
     const dispatch = useDispatch();
 
     const errorFnc = () =>
@@ -31,19 +31,18 @@ export default function CityInput() {
             }
         }
     };
+
     return (
-        <>
-            <input
-                className="cityInput"
-                type="text"
-                placeholder="City name*"
-                onKeyDown={handleEnterKey}
-                value={cityname}
-                onChange={(e) => {
-                    setCityName(e.target.value);
-                }}
-                required
-            />
-        </>
+        <input
+            className="cityInput"
+            type="text"
+            placeholder="City name*"
+            onKeyDown={handleEnterKey}
+            value={cityname}
+            onChange={(e) => {
+                setCityName(e.target.value);
+            }}
+            required
+        />
     );
 }

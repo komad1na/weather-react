@@ -5,11 +5,21 @@
     box-sizing: border-box;
     width: 250px;
     font-size: large;
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
+    border: 1px solid var(--flame);
+    border-radius: 4px;
+    padding: 12px;
     font-family: "inter";
+    color: var(--floral-white);
+    background: var(--black-olive);
+    transition: all 0.3s ease;
 }
 .cityInput:focus {
     outline: none;
+    border-color: var(--flame);
+    background: var(--eerie-black);
+}
+
+.cityInput::placeholder {
+    color: var(--floral-white);
+    opacity: 0.6;
 }
