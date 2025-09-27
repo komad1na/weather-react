@@ -1,34 +1,32 @@
-name: Build and Deploy
+name: Deploy Build to External gh-pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main  # Change this if your source branch is different
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    env:
-      REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build React app
-        run: npm run build
-
-      - name: Push to external repo
-        env:
-          PERSONAL_TOKEN: ${{ secrets.TARGET_REPO_PAT }}
+      - name: Install dependencies & build
         run: |
+          npm install
+          npm run build
+        # Change these commands if you use yarn/pnpm or a different build system
+
+      - name: Deploy build folder to external gh-pages
+        env:
+          TARGET_REPO_PAT: ${{ secrets.TARGET_REPO_PAT }}
+        run: |
+          cd build
+          git init
           git config --global user.name "komad1na"
           git config --global user.email "nemixalone@gmail.com"
-          git remote add external https://komad1na:${PERSONAL_TOKEN}@github.com/komad1na/weather.git
-          git push external main
+          git checkout -b gh-pages
+          git add .
+          git commit -m "Deploy build to gh-pages [skip ci]"
+          git push --force "https://komad1na:${TARGET_REPO_PAT}@github.com/komad1na/weather.git" gh-pages:gh-pages
