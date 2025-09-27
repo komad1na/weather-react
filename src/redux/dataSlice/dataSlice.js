@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 import { toast } from "react-toastify";
-import APIKEY from "../../apikey";
 
 const initialState = {
     cityLatLon: {
@@ -46,6 +45,7 @@ const initialState = {
         list: []
     }
 };
+const APIKEY = process.env.REACT_APP_API_KEY;
 
 const errorLoading = () => {
     toast.error(`City can't be found.`, {
@@ -96,7 +96,7 @@ const dataSlice = createSlice({
 
 export const getAPIData = (cityName) => {
     return async (dispatch) => {
-        const latLonURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKEY()}`;
+        const latLonURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKEY}`;
 
         axios
             .get(latLonURL)
@@ -105,9 +105,7 @@ export const getAPIData = (cityName) => {
                     dispatch(setLatLon(resp.data[0]));
 
                     // Get Weather data
-                    const getWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${
-                        resp.data[0].lat
-                    }&lon=${resp.data[0].lon}&appid=${APIKEY()}&units=metric`;
+                    const getWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${resp.data[0].lat}&lon=${resp.data[0].lon}&appid=${APIKEY}&units=metric`;
                     axios
                         .get(getWeatherURL)
                         .then((response) => {
@@ -119,9 +117,7 @@ export const getAPIData = (cityName) => {
                         });
 
                     // Get Air Pollution data
-                    const getAirQualityURL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${
-                        resp.data[0].lat
-                    }&lon=${resp.data[0].lon}&appid=${APIKEY()}`;
+                    const getAirQualityURL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${resp.data[0].lat}&lon=${resp.data[0].lon}&appid=${APIKEY}`;
                     axios
                         .get(getAirQualityURL)
                         .then((response) => {
@@ -133,9 +129,7 @@ export const getAPIData = (cityName) => {
                         });
 
                     // Get forecast for five days
-                    const getForecastFive = `https://api.openweathermap.org/data/2.5/forecast?lat=${
-                        resp.data[0].lat
-                    }&lon=${resp.data[0].lon}&appid=${APIKEY()}&units=metric`;
+                    const getForecastFive = `https://api.openweathermap.org/data/2.5/forecast?lat=${resp.data[0].lat}&lon=${resp.data[0].lon}&appid=${APIKEY}&units=metric`;
                     axios
                         .get(getForecastFive)
                         .then((response) => {
