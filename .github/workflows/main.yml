@@ -1,0 +1,33 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build React app
+        run: npm run build
+
+      - name: Push build folder to target repo
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.TARGET_REPO_PAT }}
+          publish_dir: ./build
+          external_repository: komad1na/weather   # Change to your target repo
+          publish_branch: main                    # Change to your target branch
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
