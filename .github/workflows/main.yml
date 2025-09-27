@@ -31,5 +31,5 @@ jobs:
           publish_dir: ./build
           external_repository: komad1na/weather   # Change to your target repo
           publish_branch: main                    # Change to your target branch
-          user_name: github-actions[bot]
-          user_email: github-actions[bot]@users.noreply.github.com
+          user_name: komad1na
+          user_email: nemixalone@gmail.com
