@@ -6,7 +6,9 @@
 .pnp.js
 .prettierrc.json
 .env
-
+/.claude
+/.vscode
+.vscode/*
 # testing
 /coverage
 

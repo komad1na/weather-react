@@ -20,7 +20,7 @@ export default function getDirection(deg) {
         dir = "S";
     } else if (deg > 191.25 && deg <= 213.75) {
         dir = "SSW";
-    } else if (deg > 213.75 && deg <= 236.35) {
+    } else if (deg > 213.75 && deg <= 236.25) {
         dir = "SW";
     } else if (deg > 236.25 && deg <= 258.75) {
         dir = "WSW";
