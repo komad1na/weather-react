@@ -50,8 +50,8 @@ const APIKEY = import.meta.env.VITE_APIKEY;
 
 const errorLoading = () => {
     toast.error(`City can't be found.`, {
-        position: "bottom-left",
-        autoClose: 3000,
+        position: "top-right",
+        autoClose: 4000,
         hideProgressBar: false,
         closeOnClick: false,
         pauseOnHover: false,
@@ -64,8 +64,8 @@ const errorLoading = () => {
 
 const loaded = () => {
     toast.success(`Data loaded.`, {
-        position: "bottom-left",
-        autoClose: 2000,
+        position: "top-right",
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: false,
         pauseOnHover: false,

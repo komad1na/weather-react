@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { getAPIData } from "../../redux/dataSlice/dataSlice.js";
 import { useDispatch } from "react-redux";
-import './city-input-style.css';
+import "./city-input-style.css";
 
 export default function CityInput() {
     const [cityname, setCityName] = useState("");
@@ -10,8 +10,8 @@ export default function CityInput() {
 
     const errorFnc = () =>
         toast.error(`City name can't be empty.`, {
-            position: "bottom-left",
-            autoClose: 3000,
+            position: "top-right",
+            autoClose: 4000,
             hideProgressBar: false,
             closeOnClick: false,
             pauseOnHover: false,
