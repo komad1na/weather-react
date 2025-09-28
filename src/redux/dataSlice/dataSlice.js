@@ -45,7 +45,8 @@ const initialState = {
         list: []
     }
 };
-const APIKEY = process.env.REACT_APP_API_KEY;
+
+const APIKEY = import.meta.env.VITE_APIKEY;
 
 const errorLoading = () => {
     toast.error(`City can't be found.`, {

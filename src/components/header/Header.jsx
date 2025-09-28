@@ -1,5 +1,5 @@
 import React from "react";
-const CityInput = require("../city-input/CityInput").default;
+import CityInput from "../city-input/CityInput";
 import "./header-style.css";
 
 export default function Header() {
