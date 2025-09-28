@@ -1,32 +1,32 @@
 name: Deploy Build to External gh-pages
 
 on:
-  push:
-    branches:
-      - main  # Change this if your source branch is different
+    push:
+        branches:
+            - main # Change this if your source branch is different
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout source
+              uses: actions/checkout@v4
 
-      - name: Install dependencies & build
-        run: |
-          npm install
-          npm run build
-        # Change these commands if you use yarn/pnpm or a different build system
+            - name: Install dependencies & build
+              run: |
+                  npm install
+                  npm run build
+              # Change these commands if you use yarn/pnpm or a different build system
 
-      - name: Deploy build folder to external gh-pages
-        env:
-          TARGET_REPO_PAT: ${{ secrets.TARGET_REPO_PAT }}
-        run: |
-          cd build
-          git init
-          git config --global user.name "komad1na"
-          git config --global user.email "nemixalone@gmail.com"
-          git checkout -b gh-pages
-          git add .
-          git commit -m "Deploy build to gh-pages [skip ci]"
-          git push --force "https://komad1na:${TARGET_REPO_PAT}@github.com/komad1na/weather.git" gh-pages:gh-pages
+            - name: Deploy build folder to external gh-pages
+              env:
+                  TARGET_REPO_PAT: ${{ secrets.TARGET_REPO_PAT }}
+              run: |
+                  cd dist
+                  git init
+                  git config --global user.name "komad1na"
+                  git config --global user.email "nemixalone@gmail.com"
+                  git checkout -b gh-pages
+                  git add .
+                  git commit -m "Deploy build to gh-pages [skip ci]"
+                  git push --force "https://komad1na:${TARGET_REPO_PAT}@github.com/komad1na/weather.git" gh-pages:gh-pages
