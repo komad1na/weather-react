@@ -13,10 +13,11 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Install dependencies & build
+              env:
+                  VITE_APIKEY: ${{ secrets.VITE_APIKEY }}
               run: |
                   npm install
                   npm run build
-              # Change these commands if you use yarn/pnpm or a different build system
 
             - name: Deploy build folder to external gh-pages
               env:
